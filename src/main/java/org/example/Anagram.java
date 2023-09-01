@@ -18,4 +18,25 @@ public class Anagram {
         }
         return letters;
     }
+
+    public boolean isAnagram2(String word1, String word2) {
+
+        if (word1.length() != word2.length()) {
+            return false;
+        }
+
+        var letters = new int[26];
+        for (int i = 0; i < word1.length(); i++) {
+            letters[word1.charAt(i) - 'a']++;
+            letters[word2.charAt(i) - 'a']--;
+        }
+
+        for (int letter : letters) {
+            if (letter != 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
